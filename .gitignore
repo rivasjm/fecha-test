@@ -1,0 +1,6 @@
+# Ignorar archivos y carpetas generados automáticamente
+/target/
+*.class
+*.lst
+*.xml
+*.txt
