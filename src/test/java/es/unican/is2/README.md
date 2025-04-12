@@ -13,7 +13,7 @@ Este archivo describe los casos de prueba implementados en `VehiculoTest.java` p
 
 Los casos de prueba se generan utilizando un método parametrizado con diferentes fechas de fabricación y el impuesto esperado. A continuación, se describen los casos en una tabla:
 
-| Fecha de primera matroculación      | Impuesto esperado |
+| Fecha de primera matriculación      | Impuesto esperado |
 |-------------------------------------|-------------------|
 | Hace 20 años                        | 50.0              |
 | Hace 10 años                        | 50.0              |
