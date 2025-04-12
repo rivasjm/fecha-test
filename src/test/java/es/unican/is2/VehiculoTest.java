@@ -1,34 +1,44 @@
 package es.unican.is2;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
+import java.util.stream.Stream;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class VehiculoTest {
 
-    @Test
-    public void testCalculaImpuesto() {
-        Vehiculo vehiculoNuevo = new Vehiculo(LocalDate.now().minusYears(2));
-        assertEquals(100.0, vehiculoNuevo.calculaImpuesto(), 0.01);
+    private Vehiculo vehiculo;
 
-        Vehiculo vehiculoMedio = new Vehiculo(LocalDate.now().minusYears(6));
-        assertEquals(80.0, vehiculoMedio.calculaImpuesto(), 0.01);
-
-        Vehiculo vehiculoViejo = new Vehiculo(LocalDate.now().minusYears(12));
-        assertEquals(50.0, vehiculoViejo.calculaImpuesto(), 0.01);
+    private static Stream<Arguments> provideTestCases() {
+        return Stream.of(
+            Arguments.of(LocalDate.now().minusYears(20), 50.0),
+            Arguments.of(LocalDate.now().minusYears(10), 50.0),
+            Arguments.of(LocalDate.now().minusYears(10).plusDays(1), 80.0),
+            Arguments.of(LocalDate.now().minusYears(6), 80.0),
+            Arguments.of(LocalDate.now().minusYears(4), 80.0),
+            Arguments.of(LocalDate.now().minusYears(4).plusDays(1), 100.0),
+            Arguments.of(LocalDate.now().minusYears(2), 100.0),
+            Arguments.of(LocalDate.now(), 100.0)
+        );
     }
 
-    @Test
-    public void testCalculaImpuestoMal() {
-        Vehiculo vehiculoNuevo = new Vehiculo(LocalDate.now().minusYears(2));
-        assertEquals(100.0, vehiculoNuevo.calculaImpuesto(), 0.01);
-
-        Vehiculo vehiculoMedio = new Vehiculo(LocalDate.now().minusYears(6));
-        assertEquals(80.0, vehiculoMedio.calculaImpuesto(), 0.01);
-
-        Vehiculo vehiculoViejo = new Vehiculo(LocalDate.now().minusYears(12));
-        assertEquals(50.0, vehiculoViejo.calculaImpuesto(), 0.01);
+    @ParameterizedTest
+    @MethodSource("provideTestCases")
+    public void testCalculaImpuesto(LocalDate fechaFabricacion, double impuestoEsperado) {
+        vehiculo = new Vehiculo(fechaFabricacion);
+        assertEquals(impuestoEsperado, vehiculo.calculaImpuesto(), 0.01);
     }
+
+    @ParameterizedTest
+    @MethodSource("provideTestCases")
+    public void testCalculaImpuestoMal(LocalDate fechaFabricacion, double impuestoEsperado) {
+        vehiculo = new Vehiculo(fechaFabricacion);
+        assertEquals(impuestoEsperado, vehiculo.calculaImpuestoMal(), 0.01);
+    }
+
+    
 }
