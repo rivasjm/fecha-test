@@ -1,22 +1,15 @@
-# Descripción de las Pruebas
+## Descripción
 
-Este directorio contiene las pruebas unitarias para el proyecto. Las pruebas están diseñadas para garantizar el correcto funcionamiento de las clases y métodos implementados en el código fuente.
-
-## Pruebas incluidas
-
-### VehiculoTest
-
-- **Propósito**: Validar el cálculo del impuesto basado en la antigüedad del vehículo.
-- **Casos de prueba**:
+- **Cálculo del impuesto del vehículo**:
   - Vehículo nuevo (menos de 4 años de antigüedad): Impuesto esperado de 100.0.
   - Vehículo de antigüedad media (menos de 10 años de antigüedad): Impuesto esperado de 80.0.
   - Vehículo viejo (vehículos a partir de 10 años de antigüedad): Impuesto esperado de 50.0.
 
-# Casos de prueba para la clase Vehiculo
+## Casos de prueba para la clase Vehiculo
 
 Este archivo describe los casos de prueba implementados en `VehiculoTest.java` para verificar el cálculo del impuesto de un vehículo basado en su fecha de fabricación.
 
-## Casos de prueba
+### Casos de prueba
 
 Los casos de prueba se generan utilizando un método parametrizado con diferentes fechas de fabricación y el impuesto esperado. A continuación, se describen los casos en una tabla:
 
@@ -31,14 +24,14 @@ Los casos de prueba se generan utilizando un método parametrizado con diferente
 | Hace 2 años                         | 100.0             |
 | Hoy                                 | 100.0             |
 
-## Métodos de prueba
+### Métodos de prueba
 
 Se implementan dos métodos de prueba:
 
 1. `testCalculaImpuesto`: Verifica el cálculo correcto del impuesto.
 2. `testCalculaImpuestoMal`: Verifica un cálculo alternativo del impuesto para propósitos de comparación.
 
-## Ejecución de las pruebas
+### Ejecución de las pruebas
 
 Para ejecutar las pruebas, utiliza el siguiente comando de Maven:
 
