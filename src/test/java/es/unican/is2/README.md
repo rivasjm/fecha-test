@@ -15,13 +15,13 @@ Los casos de prueba se generan utilizando un método parametrizado con diferente
 
 | Fecha de primera matriculación      | Impuesto esperado |
 |-------------------------------------|-------------------|
-| Hace 20 años                        | 50.0              |
-| Hace 10 años                        | 50.0              |
-| Hace 10 años menos 1 día            | 80.0              |
-| Hace 6 años                         | 80.0              |
-| Hace 4 años                         | 80.0              |
-| Hace 4 años menos 1 día             | 100.0             |
-| Hace 2 años                         | 100.0             |
+| Hoy - 20 años                       | 50.0              |
+| Hoy - 10 años                       | 50.0              |
+| Hoy - 10 años + 1 día               | 80.0              |
+| Hoy - 6 años                        | 80.0              |
+| Hoy - 4 años                        | 80.0              |
+| Hoy - 4 años + 1 día                | 100.0             |
+| Hoy - 2 años                        | 100.0             |
 | Hoy                                 | 100.0             |
 
 ### Métodos de prueba
